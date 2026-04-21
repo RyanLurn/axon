@@ -39,17 +39,23 @@ async function main() {
 
   console.log("Begin agent's loop.");
   for (let turn = 1; turn <= 25 && sandbox.status === "running"; turn++) {
-    console.log(`Turn ${turn}:`);
+    console.log(`\nTurn ${turn}:`);
 
+    console.log("Generating agent's response...");
     const { text } = await generateText({
       model: groq("openai/gpt-oss-120b"),
       system: systemPrompt,
       messages,
     });
+    console.log("Agent responded with:");
+    console.log(text);
     messages.push({ role: "assistant", content: text });
 
+    console.log("Running agent's responded code in sandbox...");
     const result = await sandbox.runCommand("node", ["-e", text]);
     const output = await result.output("both");
+    console.log("Code execution result:");
+    console.log(output);
     messages.push({ role: "user", content: output });
 
     console.log("Checking for solutions...");
@@ -61,9 +67,13 @@ async function main() {
     if (stream === null) {
       console.log("No solutions found. Agent's loop continues...");
     } else {
-      console.log("Solutions found:");
-      const solutions = await new Response(stream).json();
-      console.log(solutions);
+      console.log("Solutions found. Writting them to logs directory...");
+      const solutionsContent = await new Response(stream).text();
+      const solutionsFilePath = join(LOGS_DIR, "solutions.json");
+      const bytes = await Bun.write(solutionsFilePath, solutionsContent);
+      console.log(
+        `Written ${bytes} bytes of solutions data to "${solutionsFilePath}".`
+      );
       break;
     }
   }
@@ -76,7 +86,7 @@ async function main() {
 
   const logContent = JSON.stringify(messages, null, 2);
   const logFilePath = join(LOGS_DIR, "messages.json");
-  const bytes = await Bun.write(join(LOGS_DIR, "messages.json"), logContent);
+  const bytes = await Bun.write(logFilePath, logContent);
   console.log(`Written ${bytes} bytes of messages data to "${logFilePath}".`);
 }
 
