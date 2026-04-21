@@ -10,8 +10,10 @@
     "pull-env": "bunx vercel env pull .env"
   },
   "dependencies": {
+    "@ai-sdk/groq": "^3.0.35",
     "@t3-oss/env-core": "catalog:",
     "@vercel/sandbox": "^1.10.0",
+    "ai": "^6.0.168",
     "zod": "catalog:"
   },
   "devDependencies": {
