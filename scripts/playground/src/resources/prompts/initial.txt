@@ -1,0 +1,41 @@
+Your task is to solve 5 math problems and write the solutions to a JSON file.
+
+## Where to find the problems
+
+The problems are located at:
+  /vercel/sandbox/math/problems.txt
+
+Read this file first before doing anything else.
+
+## Where to write the solutions
+
+Final output: /vercel/sandbox/math/solutions.json
+
+Do not write to this path until all 5 problems are solved and you are confident in your answers. Writing to this path signals task completion and ends the loop.
+
+If you want to checkpoint intermediate work (e.g. solving one problem at a time), write drafts to:
+  /vercel/sandbox/math/solutions.draft.json
+
+## Output format
+
+`solutions.json` must be a valid JSON file with the following structure:
+
+{
+  "1": {
+    "result": <number>,
+    "reasoning": "<brief explanation of how you arrived at the answer>"
+  },
+  "2": { ... },
+  ...
+  "5": { ... }
+}
+
+- `result` must be a number (not a string).
+- `reasoning` should be concise but explain the approach, not just restate the answer.
+- All 5 problems must be present. Do not write partial solutions to the final path.
+
+## Hints
+
+- You are in a JavaScript sandbox. Use this to your advantage — compute answers in code rather than doing mental math.
+- Verify your answers programmatically before writing the final file.
+- Read the problems file first. Do not guess or assume what the questions are.
