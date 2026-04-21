@@ -1,0 +1,9 @@
+1. What is the sum of all prime numbers less than 100?
+
+2. A farmer has both chickens and rabbits. He counts 40 heads and 112 legs in total. How many chickens and how many rabbits does he have?
+
+3. What is the 15th Fibonacci number? (Where F(1) = 1, F(2) = 1, F(3) = 2, ...)
+
+4. A ball is dropped from a height of 120 meters. Each time it bounces, it rises to 65% of the height it fell from. What is the total distance traveled by the ball by the time it hits the ground for the 8th time? Round to 2 decimal places.
+
+5. What is the remainder when 2^100 is divided by 13?
