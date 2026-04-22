@@ -12,6 +12,7 @@
     "@repo/ui": "workspace:*",
     "@tanstack/react-router": "catalog:",
     "@tanstack/react-start": "catalog:",
+    "ai": "^6.0.168",
     "lucide-react": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
