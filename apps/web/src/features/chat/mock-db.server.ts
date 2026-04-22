@@ -1,7 +1,13 @@
 import "@tanstack/react-start/server-only";
-import type { UIMessage } from "ai";
+import type { ReasoningUIPart, TextUIPart } from "ai";
 
-export const mockDb: UIMessage[] = [
+export type Message = {
+  id: string;
+  role: "assistant" | "user";
+  parts: Array<ReasoningUIPart | TextUIPart>;
+};
+
+export const mockDb: Message[] = [
   {
     id: crypto.randomUUID(),
     role: "user",
