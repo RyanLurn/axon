@@ -1,3 +1,5 @@
+import type { ComponentProps } from "react";
+
 import { Button } from "@repo/ui/components/button";
 import { PanelLeftIcon } from "lucide-react";
 import { cn } from "@repo/ui/lib/utils";
@@ -8,7 +10,7 @@ export function SidebarTrigger({
   className,
   onClick,
   ...props
-}: React.ComponentProps<typeof Button>) {
+}: ComponentProps<typeof Button>) {
   const { toggleSidebar } = useSidebar();
   return (
     <Button
