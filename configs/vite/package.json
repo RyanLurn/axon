@@ -11,8 +11,7 @@
     "types": "./src/index.d.ts"
   },
   "peerDependencies": {
-    "@tanstack/react-start": "catalog:",
-    "babel-plugin-react-compiler": "catalog:"
+    "@tanstack/react-start": "catalog:"
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",

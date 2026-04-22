@@ -111,7 +111,6 @@
       },
       "peerDependencies": {
         "@tanstack/react-start": "catalog:",
-        "babel-plugin-react-compiler": "catalog:",
       },
     },
     "packages/core": {
