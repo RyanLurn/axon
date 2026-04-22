@@ -11,7 +11,8 @@
     "types": "./src/index.d.ts"
   },
   "peerDependencies": {
-    "@tanstack/react-start": "catalog:"
+    "@tanstack/react-start": "catalog:",
+    "babel-plugin-react-compiler": "catalog:"
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",
@@ -21,7 +22,6 @@
     "@tailwindcss/vite": "^4.2.2",
     "@types/babel__core": "^7.20.5",
     "@vitejs/plugin-react": "^6.0.1",
-    "babel-plugin-react-compiler": "^1.0.0",
     "eslint": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:"
