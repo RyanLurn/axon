@@ -2,3 +2,4 @@
 @import "@repo/ui/style.css";
 
 @source "../node_modules/@repo/ui/dist";
+@source "../node_modules/streamdown/dist/*.js";
