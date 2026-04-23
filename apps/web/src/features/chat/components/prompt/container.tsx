@@ -22,7 +22,10 @@ export function PromptContainer({
 }: PromptContainerProps) {
   return (
     <div
-      className={cn("sticky bottom-5 flex w-full flex-col gap-y-2", className)}
+      className={cn(
+        "sticky bottom-5 flex w-full flex-col gap-y-2 rounded-md bg-card p-3",
+        className
+      )}
       {...props}
     >
       <PromptInput
@@ -32,9 +35,9 @@ export function PromptContainer({
         prompt={prompt}
       />
       <SendButton
-        className="ml-auto justify-end"
         handleSend={handleSend}
         isSending={isSending}
+        className="ml-auto"
       />
     </div>
   );

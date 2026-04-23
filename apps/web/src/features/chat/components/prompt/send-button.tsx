@@ -1,5 +1,6 @@
 import type { ComponentProps } from "react";
 
+import { Spinner } from "@repo/ui/components/spinner";
 import { Button } from "@repo/ui/components/button";
 import { Send } from "lucide-react";
 
@@ -24,7 +25,7 @@ export function SendButton({
       size={size}
       {...props}
     >
-      <Send />
+      {isSending ? <Spinner /> : <Send />}
     </Button>
   );
 }

@@ -17,6 +17,7 @@ export function PromptInput({
   handlePromptChange,
   isSending,
   handleSend,
+  placeholder = "Enter your prompt",
   className,
   rows = 3,
   ...props
@@ -30,9 +31,10 @@ export function PromptInput({
 
   return (
     <textarea
+      className={cn("resize-none focus:outline-none", className)}
       onChange={(e) => handlePromptChange(e.target.value)}
-      className={cn("field-sizing-content", className)}
       onKeyDown={(e) => void handleKeyDown(e)}
+      placeholder={placeholder}
       disabled={isSending}
       value={prompt}
       rows={rows}
