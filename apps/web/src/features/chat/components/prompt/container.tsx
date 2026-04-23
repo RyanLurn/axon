@@ -23,7 +23,7 @@ export function PromptContainer({
   return (
     <div
       className={cn(
-        "sticky bottom-5 flex w-full flex-col gap-y-2 rounded-md bg-card p-3",
+        "sticky bottom-6 flex w-full flex-col gap-y-2 rounded-md bg-card p-3",
         className
       )}
       {...props}

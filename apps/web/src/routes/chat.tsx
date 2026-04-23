@@ -51,8 +51,8 @@ function ChatPage() {
         ];
 
   return (
-    <div className="mx-auto flex size-full max-w-2xl flex-col items-center">
-      <MessageThread messages={displayedMessages} className="mt-6 flex-1" />
+    <div className="mx-auto flex size-full max-w-2xl flex-col items-center gap-y-6">
+      <MessageThread messages={displayedMessages} className="my-6 flex-1" />
       <PromptContainer
         isSending={sentPrompt === null ? false : true}
         handlePromptChange={handlePromptChange}
