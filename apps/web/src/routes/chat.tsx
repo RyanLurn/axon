@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
+import { MessageThread } from "@/features/chat/components/message/thread";
 import { listMessages } from "@/features/chat/list-messages.function";
 
 export const Route = createFileRoute("/chat")({
@@ -11,10 +12,8 @@ function ChatPage() {
   const messages = Route.useLoaderData();
 
   return (
-    <div className="flex flex-col gap-y-4">
-      {messages.map((message) => (
-        <p key={message.id}>{message.content}</p>
-      ))}
+    <div className="mx-auto flex size-full max-w-2xl flex-col items-center">
+      <MessageThread className="mt-6 flex-1" messages={messages} />
     </div>
   );
 }

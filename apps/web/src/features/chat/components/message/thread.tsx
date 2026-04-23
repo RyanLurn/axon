@@ -17,7 +17,7 @@ export function MessageThread({
 }: MessageThreadProps) {
   return (
     <div
-      className={cn("flex size-full flex-col gap-y-3", className)}
+      className={cn("flex size-full flex-col gap-y-6", className)}
       {...props}
     >
       {messages.map((message) => (
