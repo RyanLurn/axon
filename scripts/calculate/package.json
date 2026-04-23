@@ -1,0 +1,21 @@
+{
+  "name": "@repo/calculate",
+  "type": "module",
+  "private": "true",
+  "scripts": {
+    "start": "bun run src/index.ts",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint --cache"
+  },
+  "dependencies": {
+    "@clack/prompts": "catalog:"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/bun": "catalog:",
+    "@types/node": "catalog:",
+    "eslint": "catalog:",
+    "typescript": "catalog:"
+  }
+}
