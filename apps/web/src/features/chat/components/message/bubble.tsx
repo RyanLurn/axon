@@ -16,7 +16,7 @@ export function MessageBubble({
   return (
     <div
       className={cn(
-        "w-full max-w-4/5 rounded-lg p-3",
+        "w-fit max-w-4/5 rounded-lg p-3",
         message.role === "user"
           ? "ml-auto justify-end bg-primary text-primary-foreground"
           : "bg-secondary text-secondary-foreground",
