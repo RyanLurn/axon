@@ -13,7 +13,7 @@ function ChatPage() {
   return (
     <div className="flex flex-col gap-y-4">
       {messages.map((message) => (
-        <p key={message.id}>{message.parts[0]?.text}</p>
+        <p key={message.id}>{message.content}</p>
       ))}
     </div>
   );
