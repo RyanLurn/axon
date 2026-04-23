@@ -40,8 +40,10 @@
     "apps/web": {
       "name": "@repo/web",
       "dependencies": {
+        "@ai-sdk/groq": "^3.0.35",
         "@repo/core": "workspace:*",
         "@repo/ui": "workspace:*",
+        "@t3-oss/env-core": "catalog:",
         "@tanstack/react-router": "catalog:",
         "@tanstack/react-start": "catalog:",
         "ai": "^6.0.168",
