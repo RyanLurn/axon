@@ -2,7 +2,10 @@ import type { ComponentProps, KeyboardEvent } from "react";
 
 import { cn } from "@repo/ui/lib/utils";
 
-interface PromptInputProps extends ComponentProps<"textarea"> {
+interface PromptInputProps extends Omit<
+  ComponentProps<"textarea">,
+  "onKeyDown" | "onChange" | "disabled" | "value"
+> {
   prompt: string;
   handlePromptChange: (prompt: string) => void;
   isSending: boolean;
@@ -15,6 +18,7 @@ export function PromptInput({
   isSending,
   handleSend,
   className,
+  rows = 3,
   ...props
 }: PromptInputProps) {
   async function handleKeyDown(e: KeyboardEvent<HTMLTextAreaElement>) {
@@ -31,7 +35,7 @@ export function PromptInput({
       onKeyDown={(e) => void handleKeyDown(e)}
       disabled={isSending}
       value={prompt}
-      rows={3}
+      rows={rows}
       {...props}
     />
   );
