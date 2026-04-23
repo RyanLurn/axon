@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import { MessageThread } from "@/features/chat/components/message/thread";
-import { listMessages } from "@/features/chat/list-messages.function";
+import { listMessages } from "@/features/chat/functions/list-messages";
 
 export const Route = createFileRoute("/chat")({
   loader: () => listMessages(),
