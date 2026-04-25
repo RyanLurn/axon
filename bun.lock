@@ -10,6 +10,21 @@
         "turbo": "^2.9.6",
       },
     },
+    "apps/api": {
+      "name": "@repo/api",
+      "dependencies": {
+        "hono": "catalog:",
+        "zod": "catalog:",
+      },
+      "devDependencies": {
+        "@repo/eslint-config": "workspace:*",
+        "@repo/typescript-config": "workspace:*",
+        "@types/bun": "catalog:",
+        "@types/node": "catalog:",
+        "eslint": "catalog:",
+        "typescript": "catalog:",
+      },
+    },
     "apps/home": {
       "name": "@repo/home",
       "dependencies": {
@@ -221,6 +236,7 @@
     "@types/react-dom": "^19.2.3",
     "babel-plugin-react-compiler": "^1.0.0",
     "eslint": "^10.2.1",
+    "hono": "^4.12.14",
     "jsonc-parser": "^3.3.1",
     "lucide-react": "^1.8.0",
     "react": "^19.2.5",
@@ -545,6 +561,8 @@
     "@quansync/fs": ["@quansync/fs@1.0.0", "", { "dependencies": { "quansync": "^1.0.0" } }, "sha512-4TJ3DFtlf1L5LDMaM6CanJ/0lckGNtJcMjQ1NAV6zDmA0tEHKZtxNKin8EgPaVX1YzljbxckyT2tJrpQKAtngQ=="],
 
     "@renovatebot/pep440": ["@renovatebot/pep440@4.2.1", "", {}, "sha512-2FK1hF93Fuf1laSdfiEmJvSJPVIDHEUTz68D3Fi9s0IZrrpaEcj6pTFBTbYvsgC5du4ogrtf5re7yMMvrKNgkw=="],
+
+    "@repo/api": ["@repo/api@workspace:apps/api"],
 
     "@repo/calculate": ["@repo/calculate@workspace:scripts/calculate"],
 
