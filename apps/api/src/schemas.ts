@@ -5,4 +5,4 @@ export const MessageSchema = z.object({
   role: z.union([z.literal("user"), z.literal("assistant")]),
   content: z.string(),
 });
-export type MessageType = z.infer<typeof MessageSchema>;
+export type Message = z.infer<typeof MessageSchema>;
