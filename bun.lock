@@ -13,6 +13,7 @@
     "apps/api": {
       "name": "@repo/api",
       "dependencies": {
+        "@repo/core": "workspace:*",
         "hono": "catalog:",
         "zod": "catalog:",
       },

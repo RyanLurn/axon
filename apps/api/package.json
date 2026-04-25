@@ -9,6 +9,7 @@
     "lint": "eslint --cache"
   },
   "dependencies": {
+    "@repo/core": "workspace:*",
     "hono": "catalog:",
     "zod": "catalog:"
   },
