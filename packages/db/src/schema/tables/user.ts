@@ -1,5 +1,5 @@
 import { boolean, pgTable, text } from "drizzle-orm/pg-core";
-import { generateNickname } from "@repo/randomizer/index";
+import { generateNickname } from "@repo/randomizer";
 
 import type { UserId } from "@/types";
 
