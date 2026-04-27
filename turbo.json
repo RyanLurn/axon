@@ -3,15 +3,24 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "!migrations",
+        "!eslint.config.js",
+        "!drizzle.config.ts",
+        "!.env.example"
+      ],
       "outputs": ["dist/**"],
       "outputLogs": "errors-only"
     },
     "check-types": {
       "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", "!migrations", "!.env.example"],
       "outputLogs": "errors-only"
     },
     "lint": {
       "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", "!migrations", "!.env.example"],
       "outputs": [".eslintcache"],
       "outputLogs": "errors-only"
     }
