@@ -12,8 +12,6 @@ export function generateNickname() {
   const randomLastName = getRandomItem(lastNames);
   const randomAdjective = capitalizeFirstLetter(getRandomItem(adjectives));
   const randomNoun = capitalizeFirstLetter(getRandomItem(nouns));
-  const randomDadName = getRandomItem(maleFirstNames);
-  const randomMomName = getRandomItem(femaleFirstNames);
 
-  return `${randomFirstName} ${randomLastName} the ${randomAdjective} ${randomNoun}, ${gender === "male" ? "son" : "daughter"} of ${randomDadName} and ${randomMomName}`;
+  return `${randomFirstName} ${randomLastName} the ${randomAdjective} ${randomNoun}`;
 }
