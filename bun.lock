@@ -165,6 +165,7 @@
         "@types/node": "catalog:",
         "drizzle-kit": "^0.31.10",
         "eslint": "catalog:",
+        "tsdown": "catalog:",
         "typescript": "catalog:",
       },
     },
