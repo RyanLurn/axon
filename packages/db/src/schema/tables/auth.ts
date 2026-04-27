@@ -1,4 +1,4 @@
-import { boolean, pgTable, text } from "drizzle-orm/pg-core";
+import { boolean, pgTable, text, uuid } from "drizzle-orm/pg-core";
 
 import type { UserId } from "@/types";
 
@@ -13,3 +13,8 @@ export const userTable = pgTable("users", {
   image: text("image"),
   ...timestampsWithDelete,
 });
+
+export const userId = uuid("user_id")
+  .notNull()
+  .$type<UserId>()
+  .references(() => userTable.id, { onDelete: "cascade" });
