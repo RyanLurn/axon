@@ -5,7 +5,9 @@
   "scripts": {
     "try": "bun run src/try.ts",
     "check-types": "tsc --noEmit",
-    "lint": "eslint --cache"
+    "lint": "eslint --cache",
+    "generate": "bun --env-file=.env.local run drizzle-kit generate",
+    "migrate": "bun --env-file=.env.local run drizzle-kit migrate"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.1.0",
