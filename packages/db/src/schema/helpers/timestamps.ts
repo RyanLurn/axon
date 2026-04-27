@@ -1,18 +1,14 @@
 import { timestamp } from "drizzle-orm/pg-core";
 
+export const timestampConfig = {
+  mode: "date",
+  withTimezone: true,
+  precision: 6,
+} as const;
+
 export const timestamps = {
-  createdAt: timestamp("created_at", {
-    mode: "date",
-    withTimezone: true,
-    precision: 6,
-  })
-    .defaultNow()
-    .notNull(),
-  updatedAt: timestamp("updated_at", {
-    mode: "date",
-    withTimezone: true,
-    precision: 6,
-  })
+  createdAt: timestamp("created_at", timestampConfig).defaultNow().notNull(),
+  updatedAt: timestamp("updated_at", timestampConfig)
     .defaultNow()
     .notNull()
     .$onUpdate(() => /* @__PURE__ */ new Date()),
@@ -20,9 +16,5 @@ export const timestamps = {
 
 export const timestampsWithDelete = {
   ...timestamps,
-  deletedAt: timestamp("deleted_at", {
-    mode: "date",
-    withTimezone: true,
-    precision: 6,
-  }).defaultNow(),
+  deletedAt: timestamp("deleted_at", timestampConfig).defaultNow(),
 };
