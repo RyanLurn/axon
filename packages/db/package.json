@@ -10,6 +10,12 @@
     "generate": "bun --env-file=.env.local run drizzle-kit generate",
     "migrate": "bun --env-file=.env.local run drizzle-kit migrate"
   },
+  "exports": {
+    "./*": {
+      "import": "./dist/*.mjs",
+      "types": "./dist/*.d.mts"
+    }
+  },
   "dependencies": {
     "@neondatabase/serverless": "^1.1.0",
     "@repo/core": "workspace:*",
