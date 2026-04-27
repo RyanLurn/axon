@@ -1,4 +1,5 @@
 import { boolean, pgTable, text } from "drizzle-orm/pg-core";
+import { generateNickname } from "@repo/randomizer/index";
 
 import type { UserId } from "@/types";
 
@@ -8,6 +9,9 @@ import { id } from "@/schema/helpers/id";
 export const userTable = pgTable("users", {
   id: id.$type<UserId>(),
   name: text("name").notNull(),
+  nickname: text("nickname")
+    .notNull()
+    .$default(() => generateNickname()),
   email: text("email").notNull().unique(),
   emailVerified: boolean("email_verified").notNull(),
   image: text("image"),
