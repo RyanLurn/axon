@@ -1,10 +1,6 @@
-import {
-  createTestAccount,
-  type Transporter,
-  createTransport,
-} from "nodemailer";
+import { createTestAccount, createTransport } from "nodemailer";
 
-let cachedTransporter: Transporter | undefined;
+let cachedTransporter: Awaited<ReturnType<typeof createTransport>> | undefined;
 
 export async function getEtherealTransport() {
   if (cachedTransporter) {
