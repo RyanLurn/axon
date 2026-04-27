@@ -14,6 +14,6 @@ export default defineConfig({
     url: devEnv.NEON_DIRECT_CONNECTION_STRING,
   },
   schema: "./src/schema/tables",
-  out: "./src/migrations",
+  out: "./migrations",
   dialect: "postgresql",
 });
