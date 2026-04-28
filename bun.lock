@@ -132,6 +132,26 @@
         "@tanstack/react-start": "catalog:",
       },
     },
+    "packages/auth": {
+      "name": "@repo/auth",
+      "dependencies": {
+        "@repo/core": "workspace:*",
+        "@repo/db": "workspace:*",
+        "@repo/email": "workspace:*",
+        "@t3-oss/env-core": "catalog:",
+        "zod": "catalog:",
+      },
+      "devDependencies": {
+        "@repo/eslint-config": "workspace:*",
+        "@repo/tsdown-config": "workspace:*",
+        "@repo/typescript-config": "workspace:*",
+        "@types/bun": "catalog:",
+        "@types/node": "catalog:",
+        "eslint": "catalog:",
+        "tsdown": "catalog:",
+        "typescript": "catalog:",
+      },
+    },
     "packages/core": {
       "name": "@repo/core",
       "devDependencies": {
@@ -627,6 +647,8 @@
     "@renovatebot/pep440": ["@renovatebot/pep440@4.2.1", "", {}, "sha512-2FK1hF93Fuf1laSdfiEmJvSJPVIDHEUTz68D3Fi9s0IZrrpaEcj6pTFBTbYvsgC5du4ogrtf5re7yMMvrKNgkw=="],
 
     "@repo/api": ["@repo/api@workspace:apps/api"],
+
+    "@repo/auth": ["@repo/auth@workspace:packages/auth"],
 
     "@repo/calculate": ["@repo/calculate@workspace:scripts/calculate"],
 
