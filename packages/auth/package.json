@@ -21,6 +21,7 @@
     }
   },
   "dependencies": {
+    "@better-auth/api-key": "^1.6.9",
     "@repo/core": "workspace:*",
     "@repo/db": "workspace:*",
     "@repo/email": "workspace:*",
