@@ -11,9 +11,15 @@
     "migrate": "bun --env-file=.env.local run drizzle-kit migrate"
   },
   "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.mts",
+      "default": "./dist/index.mjs"
+    },
     "./*": {
       "import": "./dist/*.mjs",
-      "types": "./dist/*.d.mts"
+      "types": "./dist/*.d.mts",
+      "default": "./dist/*.mjs"
     }
   },
   "dependencies": {
