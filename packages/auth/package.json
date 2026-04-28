@@ -25,6 +25,7 @@
     "@repo/db": "workspace:*",
     "@repo/email": "workspace:*",
     "@t3-oss/env-core": "catalog:",
+    "better-auth": "^1.6.9",
     "zod": "catalog:"
   },
   "devDependencies": {
