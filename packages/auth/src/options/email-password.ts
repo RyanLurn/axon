@@ -1,8 +1,6 @@
+import type { BetterAuthOptions } from "better-auth";
 import type { Email } from "@repo/email/types";
 
-import { tanstackStartCookies } from "better-auth/tanstack-start";
-import { apiKey } from "@better-auth/api-key";
-import { betterAuth } from "better-auth";
 import { sendEmail } from "@repo/email";
 
 import {
@@ -10,10 +8,8 @@ import {
   MIN_PASSWORD_LENGTH,
   NOREPLY_EMAIL,
 } from "@/constants";
-import { baseOptions } from "@/options/base";
 
-export const auth = betterAuth({
-  ...baseOptions,
+export const emailPasswordOptions = {
   emailAndPassword: {
     onExistingUserSignUp: async ({ user }) => {
       const warningEmail: Email = {
@@ -73,6 +69,4 @@ export const auth = betterAuth({
     autoSignInAfterVerification: true,
     sendOnSignIn: true,
   },
-  // make sure tanstackStartCookies is the last plugin in the array
-  plugins: [apiKey(), tanstackStartCookies()],
-});
+} satisfies BetterAuthOptions;
