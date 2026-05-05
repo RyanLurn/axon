@@ -17,7 +17,7 @@ export async function selectUserById({
     .from(userTable)
     .where(eq(userTable.id, userId as UserId));
 
-  if (selectedUser === undefined) {
+  if (!selectedUser || selectedUser.deletedAt !== null) {
     return null;
   }
 
