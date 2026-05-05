@@ -1,15 +1,17 @@
-import type { FallBackError } from "@repo/core/error/create-fallback";
 import type { Result } from "@repo/core/types/result";
 
+import {
+  createFallbackError,
+  type FallBackError,
+} from "@repo/core/error/create-fallback";
 import { NotFoundError } from "@repo/core/error/classes/not-found";
-import { eq } from "drizzle-orm";
+import { NeonDbError } from "@neondatabase/serverless";
+import { DrizzleQueryError, eq } from "drizzle-orm";
 
 import type { UserId } from "@/types";
 
-import {
-  type DatabaseError,
-  handleQueryError,
-} from "@/utils/handle-query-error";
+import { DatabaseConnectionError } from "@/errors/connection";
+import { NeonInternalError } from "@/errors/neon-internal";
 import { userTable } from "@/schema/tables/user";
 import { db } from "@/index";
 
@@ -20,8 +22,21 @@ export async function selectUserById({
 }: {
   userId: UserId;
 }): Promise<
-  Result<SelectedUser, NotFoundError<"user"> | FallBackError | DatabaseError>
+  Result<
+    SelectedUser,
+    | DatabaseConnectionError
+    | NotFoundError<"user">
+    | NeonInternalError
+    | FallBackError
+  >
 > {
+  const context = {
+    operation: "selectUserById",
+    arguments: {
+      userId,
+    },
+  };
+
   try {
     const [selectedUser] = await db
       .select()
@@ -31,7 +46,7 @@ export async function selectUserById({
     if (!selectedUser || selectedUser.deletedAt !== null) {
       return {
         success: false,
-        error: new NotFoundError({ context: { resource: "user" } }),
+        error: new NotFoundError({ context: { ...context, resource: "user" } }),
       };
     }
 
@@ -40,6 +55,34 @@ export async function selectUserById({
       data: selectedUser,
     };
   } catch (error) {
-    return handleQueryError({ error, context: {} });
+    if (
+      error instanceof DrizzleQueryError &&
+      error.cause instanceof NeonDbError
+    ) {
+      const dbError = error.cause;
+
+      if (dbError.sourceError) {
+        return {
+          success: false,
+          error: new DatabaseConnectionError({ context, cause: dbError }),
+        };
+      }
+
+      if (dbError.code === undefined) {
+        return {
+          success: false,
+          error: new NeonInternalError({ context, cause: dbError }),
+        };
+      }
+    }
+
+    return {
+      success: false,
+      error: createFallbackError({
+        message: "Failed to find user due to an unexpected error",
+        context,
+        cause: error,
+      }),
+    };
   }
 }
