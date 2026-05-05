@@ -10,11 +10,11 @@ export const userTable = pgTable(
   "users",
   {
     id: id.$type<UserId>(),
-    name: text("name"),
+    name: text("name").notNull(),
     nickname: text("nickname")
       .notNull()
       .$default(() => generateNickname()),
-    email: text("email").unique(),
+    email: text("email").notNull().unique(),
     emailVerified: boolean("email_verified").notNull(),
     image: text("image"),
     ...timestampsWithDelete,
